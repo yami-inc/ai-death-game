@@ -119,10 +119,12 @@ Open http://localhost:3000, enter your [Gemini API key](https://aistudio.google.
 
 ### Models / 使用モデル
 
-| Usage / 用途 | Model / モデル |
+| | Model / モデル |
 |-------|-------|
-| Discussion / 議論 | `gemini-3-flash-preview` |
-| Voting & Reactions / 投票・リアクション | `gemini-2.5-flash` |
+| Primary / メイン | `gemini-3-flash-preview` |
+| Fallback / フォールバック | `gemini-2.5-flash` |
+
+全機能で Primary を使用し、失敗時のみ Fallback に切り替わります。
 
 モデルが廃止された場合は `lib/byokClient.ts` 先頭の定数を差し替えてください。
 
