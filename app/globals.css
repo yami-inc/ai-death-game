@@ -1,0 +1,463 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ============================================ */
+/* レトロターミナル風スタイル */
+/* ============================================ */
+
+:root {
+  --phosphor-green: #33ff00;
+  --phosphor-dim: #005500;
+  --terminal-bg: #050505;
+}
+
+body {
+  background-color: var(--terminal-bg);
+  color: var(--phosphor-green);
+  font-family: var(--font-dotgothic), sans-serif;
+  overflow: hidden;
+}
+
+/* iOS Safariのダブルタップズーム・タップ遅延を防止 */
+* {
+  touch-action: manipulation;
+  -webkit-tap-highlight-color: transparent;
+}
+
+/* カスタムスクロールバー（常に表示） */
+::-webkit-scrollbar {
+  width: 12px;
+}
+
+::-webkit-scrollbar-track {
+  background: #001a00;
+  border: 1px solid #003300;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #006600;
+  border: 1px solid #00aa00;
+  border-radius: 2px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #008800;
+}
+
+/* Firefox用 */
+* {
+  scrollbar-width: auto;
+  scrollbar-color: #006600 #001a00;
+}
+
+/* ============================================ */
+/* CRTエフェクト */
+/* ============================================ */
+
+.crt-overlay {
+  background: linear-gradient(rgba(18, 16, 16, 0) 50%,
+      rgba(0, 0, 0, 0.25) 50%),
+    linear-gradient(90deg,
+      rgba(255, 0, 0, 0.06),
+      rgba(0, 255, 0, 0.02),
+      rgba(0, 0, 255, 0.06));
+  background-size: 100% 2px, 3px 100%;
+  pointer-events: none;
+}
+
+/* フリッカーアニメーション */
+@keyframes flicker {
+  0% {
+    opacity: 0.97;
+  }
+
+  5% {
+    opacity: 0.95;
+  }
+
+  10% {
+    opacity: 0.9;
+  }
+
+  15% {
+    opacity: 0.95;
+  }
+
+  20% {
+    opacity: 0.99;
+  }
+
+  25% {
+    opacity: 0.95;
+  }
+
+  30% {
+    opacity: 0.9;
+  }
+
+  35% {
+    opacity: 0.96;
+  }
+
+  40% {
+    opacity: 0.98;
+  }
+
+  45% {
+    opacity: 0.95;
+  }
+
+  50% {
+    opacity: 0.99;
+  }
+
+  55% {
+    opacity: 0.93;
+  }
+
+  60% {
+    opacity: 0.9;
+  }
+
+  65% {
+    opacity: 0.96;
+  }
+
+  70% {
+    opacity: 1;
+  }
+
+  75% {
+    opacity: 0.97;
+  }
+
+  80% {
+    opacity: 0.95;
+  }
+
+  85% {
+    opacity: 0.92;
+  }
+
+  90% {
+    opacity: 0.96;
+  }
+
+  95% {
+    opacity: 0.99;
+  }
+
+  100% {
+    opacity: 0.94;
+  }
+}
+
+.screen-flicker {
+  animation: flicker 0.15s infinite;
+}
+
+/* グリッチエフェクト（死亡時用） */
+@keyframes glitch {
+  0% {
+    transform: translate(0);
+    filter: hue-rotate(0deg);
+  }
+
+  10% {
+    transform: translate(-5px, -3px);
+    filter: hue-rotate(90deg);
+  }
+
+  20% {
+    transform: translate(5px, 3px);
+    filter: hue-rotate(180deg);
+  }
+
+  30% {
+    transform: translate(-5px, 3px);
+    filter: hue-rotate(270deg);
+  }
+
+  40% {
+    transform: translate(5px, -3px);
+    filter: hue-rotate(360deg);
+  }
+
+  50% {
+    transform: translate(-3px, 5px);
+    filter: hue-rotate(90deg);
+  }
+
+  60% {
+    transform: translate(3px, -5px);
+    filter: hue-rotate(180deg);
+  }
+
+  70% {
+    transform: translate(-3px, -5px);
+    filter: hue-rotate(270deg);
+  }
+
+  80% {
+    transform: translate(3px, 5px);
+    filter: hue-rotate(360deg);
+  }
+
+  90% {
+    transform: translate(-5px, 0);
+    filter: hue-rotate(90deg);
+  }
+
+  100% {
+    transform: translate(0);
+    filter: hue-rotate(0deg);
+  }
+}
+
+.glitch {
+  animation: glitch 0.3s infinite;
+}
+
+/* ============================================ */
+/* タイポグラフィ */
+/* ============================================ */
+
+.font-dotgothic {
+  font-family: var(--font-dotgothic), sans-serif;
+}
+
+.font-vt323 {
+  font-family: var(--font-vt323), monospace;
+}
+
+/* テキストグロー効果 */
+.text-glow {
+  text-shadow: 0 0 10px var(--phosphor-green), 0 0 20px var(--phosphor-green),
+    0 0 30px var(--phosphor-green);
+}
+
+/* ============================================ */
+/* レトロフレームUI */
+/* ============================================ */
+
+/* 角のデコレーション */
+.retro-frame {
+  position: relative;
+}
+
+.retro-frame::before {
+  content: '┌';
+  position: absolute;
+  top: -1px;
+  left: -1px;
+  color: inherit;
+}
+
+.retro-frame::after {
+  content: '┐';
+  position: absolute;
+  top: -1px;
+  right: -1px;
+  color: inherit;
+}
+
+/* メッセージボックス風 */
+.message-box {
+  background: linear-gradient(180deg,
+      rgba(0, 40, 0, 0.8) 0%,
+      rgba(0, 20, 0, 0.9) 100%);
+  border: 2px solid #33ff00;
+  box-shadow:
+    0 0 10px rgba(51, 255, 0, 0.3),
+    inset 0 0 20px rgba(0, 0, 0, 0.5);
+}
+
+/* 思考ボックス */
+.thought-box {
+  background: linear-gradient(180deg,
+      rgba(0, 40, 60, 0.6) 0%,
+      rgba(0, 20, 40, 0.7) 100%);
+  border: 2px solid #00a0a0;
+  box-shadow:
+    0 0 10px rgba(0, 160, 160, 0.3),
+    inset 0 0 20px rgba(0, 0, 0, 0.5);
+}
+
+/* システムメッセージ */
+.system-box {
+  background: linear-gradient(180deg,
+      rgba(60, 40, 0, 0.6) 0%,
+      rgba(40, 20, 0, 0.7) 100%);
+  border: 1px solid #a08000;
+}
+
+/* ============================================ */
+/* LPヒーロー演出 */
+/* ============================================ */
+
+@keyframes hero-logo-flicker {
+  0%,
+  100% {
+    opacity: 1;
+  }
+
+  4% {
+    opacity: 0.92;
+  }
+
+  8% {
+    opacity: 1;
+  }
+
+  9% {
+    opacity: 0.82;
+  }
+
+  10% {
+    opacity: 1;
+  }
+
+  46% {
+    opacity: 0.96;
+  }
+
+  47% {
+    opacity: 0.8;
+  }
+
+  48% {
+    opacity: 0.98;
+  }
+}
+
+@keyframes hero-logo-shift-red {
+  0%,
+  100% {
+    transform: translate(0, 0);
+    opacity: 0.26;
+  }
+
+  20% {
+    transform: translate(-1px, 0);
+    opacity: 0.36;
+  }
+
+  21% {
+    transform: translate(2px, 1px);
+    opacity: 0.18;
+  }
+
+  58% {
+    transform: translate(1px, 0);
+    opacity: 0.32;
+  }
+
+  59% {
+    transform: translate(-2px, -1px);
+    opacity: 0.14;
+  }
+}
+
+@keyframes hero-logo-shift-cyan {
+  0%,
+  100% {
+    transform: translate(0, 0);
+    opacity: 0.2;
+  }
+
+  24% {
+    transform: translate(1px, 0);
+    opacity: 0.3;
+  }
+
+  25% {
+    transform: translate(-2px, 1px);
+    opacity: 0.1;
+  }
+
+  62% {
+    transform: translate(-1px, 0);
+    opacity: 0.28;
+  }
+
+  63% {
+    transform: translate(2px, -1px);
+    opacity: 0.12;
+  }
+}
+
+@keyframes hero-scroll-cue {
+  0%,
+  100% {
+    transform: translateY(0);
+    box-shadow: 0 0 0 rgba(51, 255, 0, 0);
+  }
+
+  50% {
+    transform: translateY(5px);
+    box-shadow: 0 0 16px rgba(51, 255, 0, 0.35);
+  }
+}
+
+.hero-logo-glitch {
+  animation: hero-logo-flicker 2.6s steps(2, end) infinite;
+}
+
+.hero-logo-rgb-red {
+  mix-blend-mode: screen;
+  filter: sepia(1) saturate(4) hue-rotate(-20deg);
+  animation: hero-logo-shift-red 1.4s steps(2, end) infinite;
+}
+
+.hero-logo-rgb-cyan {
+  mix-blend-mode: screen;
+  filter: sepia(1) saturate(4) hue-rotate(150deg);
+  animation: hero-logo-shift-cyan 1.2s steps(2, end) infinite;
+}
+
+.hero-scroll-cue {
+  animation: hero-scroll-cue 1.8s ease-in-out infinite;
+}
+
+@keyframes lp-jp-heading-flicker {
+  0%,
+  100% {
+    opacity: 1;
+    text-shadow: 0 0 10px rgba(102, 255, 51, 0.2);
+  }
+
+  8% {
+    opacity: 0.92;
+    text-shadow: 0 0 18px rgba(102, 255, 51, 0.3);
+  }
+
+  9% {
+    opacity: 1;
+  }
+
+  38% {
+    opacity: 0.96;
+  }
+
+  39% {
+    opacity: 0.88;
+    text-shadow: 0 0 14px rgba(102, 255, 51, 0.35);
+  }
+
+  40% {
+    opacity: 1;
+  }
+
+  72% {
+    opacity: 0.95;
+  }
+
+  73% {
+    opacity: 1;
+  }
+}
+
+.lp-jp-heading-flicker {
+  animation: lp-jp-heading-flicker 2.8s steps(2, end) infinite;
+}
