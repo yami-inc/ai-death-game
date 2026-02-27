@@ -21,7 +21,7 @@ A browser-based death game simulator powered by Gemini. 5 AI agents with unique 
 
 **No server required.** Your Gemini API key stays in your browser and is sent directly to Google's API.
 
-Gemini搭載のブラウザ完結型デスゲームシミュレーター。個性豊かな5体のAIエージェントが議論し、投票で互いを追放する。あなたは**GM（ゲームマスター）**として介入できる。
+Gemini搭載のブラウザ完結型デスゲームシミュレーター。個性豊かな5体のAIエージェントが議論し、投票で互いを追放する。あなたは **GM（ゲームマスター）** として介入できる。
 
 **サーバー不要。** APIキーはブラウザからGoogleのAPIへ直接送信されます。
 
