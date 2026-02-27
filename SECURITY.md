@@ -8,9 +8,9 @@ If you discover a security vulnerability, please report it via the form below. *
 
 **Report here / 報告フォーム:** https://forms.gle/ASAypHwCTFPsVKFT9
 
-We will acknowledge receipt within 48 hours and aim to release a fix as soon as possible.
+We'll try to respond when we can. This is a small project, so please be patient.
 
-48時間以内に受領確認し、可能な限り早急に修正をリリースします。
+小規模プロジェクトのため、対応に時間がかかる場合があります。気長にお待ちいただけると助かります。
 
 ## Scope / 対象範囲
 

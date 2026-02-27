@@ -1,8 +1,12 @@
 # Contributing
 
-This project is open-sourced for transparency and learning. We may not be able to actively review all PRs — **forking is encouraged** if you want to take it in your own direction. Bug reports via Issues are welcome; we'll do our best to address critical ones.
+This game was originally hosted on GCP, but running costs got too high — so we open-sourced it so everyone can run it in their own environment. **Forking is strongly encouraged.** Take it, remix it, make it yours.
 
-このプロジェクトは公開・学習目的でOSS化しています。すべてのPRに対応することは難しいため、独自の方向性で発展させたい場合は**フォークを推奨**します。バグ報告のIssueは歓迎します。重大なものは可能な限り対応します。
+We're a tiny team and won't be actively maintaining this, so PRs may go unreviewed. If you find a critical bug, Issues are welcome — we'll do our best.
+
+もともとGCPでホストしていましたが、運用コストが厳しくなったためOSS化しました。皆さんの環境で自由に遊んでもらえたら嬉しいです。**フォーク大歓迎です。** 好きなように改造してください。
+
+少人数で運営しており積極的なメンテナンスは難しいため、PRへの対応はお約束できません。重大なバグはIssueで報告いただければ、できる範囲で対応します。
 
 ## Issues
 
