@@ -74,7 +74,7 @@ export const HeroSection: React.FC<Props> = ({ onScrollToHowItWorks }) => {
 
         <div className="px-4 md:px-0">
           <p className="mt-4 bg-[#0f160f] px-4 py-3 text-center text-sm font-bold tracking-wide text-[#bafdaa] md:text-base">
-            無料でプレイ / DL不要 / ブラウザで即プレイ
+            無料でプレイ / 回数無制限 / ブラウザで即プレイ
           </p>
 
           <Link

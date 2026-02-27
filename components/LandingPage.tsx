@@ -7,7 +7,6 @@ import { CharactersSection } from './landing/CharactersSection';
 import { TrophiesSection } from './landing/TrophiesSection';
 import { FAQSection } from './landing/FAQSection';
 import { CTASection } from './landing/CTASection';
-import { getMaxPlaysPerDay } from '@/lib/playLimit';
 
 export interface HowItWorksStep {
   title: string;
@@ -82,8 +81,8 @@ const TROPHIES: TrophyPreview[] = [
 ];
 
 const FAQ_ITEMS: FAQItem[] = [
-  { question: '無料ですか？', answer: 'はい、完全無料です。課金要素はありません。' },
-  { question: '何回遊べますか？', answer: `1日${getMaxPlaysPerDay()}回まで遊べます。日付が変わるとリセットされます。` },
+  { question: '無料ですか？', answer: 'ご自身のGemini APIキー（無料取得可）を使用します。課金要素はなく、Geminiの無料枠内であれば完全無料で遊べます。' },
+  { question: '何回遊べますか？', answer: '回数制限はありません。何回でも遊べます。' },
   { question: 'アプリのダウンロードは必要？', answer: 'いいえ、ブラウザだけで遊べます。スマホでもPCでもOK。' },
   { question: 'プレイ時間はどれくらい？', answer: '1ゲーム約5〜10分です。' },
   { question: 'データは保存されますか？', answer: 'ゲームデータはサーバーに保存されません。ブラウザを閉じるとリセットされます。' },

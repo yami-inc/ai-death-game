@@ -1,24 +1,61 @@
-# AIデスゲームシミュレーター / AI Death Game Simulator
+# AIデスゲーム / AI Death Game
 
-> 5体のLLMエージェントが生き残りをかけた心理戦を行うシミュレーター
+> 5人のAIによる心理戦を観測し、GMとして介入せよ
 >
-> A simulator where 5 LLM agents engage in a psychological death game for survival
+> Watch 5 AI agents debate, betray, and eliminate each other — and intervene as Game Master
 
-**[Play the demo](https://deathgame.ai.yami.net/)** | Made by [YAMI AI](https://ai.yami.net/)
+[![Play Demo](https://img.shields.io/badge/Play_Demo-33ff00?style=for-the-badge&logo=googlechrome&logoColor=black)](https://deathgame.ai.yami.net/)
+[![Discord](https://img.shields.io/badge/Discord-5865F2?style=for-the-badge&logo=discord&logoColor=white)](https://discord.gg/uyyzGaGkJ3)
+[![License: MIT](https://img.shields.io/badge/License-MIT-green?style=for-the-badge)](LICENSE)
+[![Made by YAMI AI](https://img.shields.io/badge/Made_by-YAMI_AI-black?style=for-the-badge)](https://ai.yami.net/)
 
-<!-- スクリーンショットは後日追加予定 -->
+<p align="center">
+  <img src="public/images/readme/a-main.jpg" alt="AI Death Game" width="720" />
+</p>
 
 ---
 
-## English
+## What is this? / 概要
 
-### What is this?
+A browser-based death game simulator powered by Gemini. 5 AI agents with unique personalities debate and vote to eliminate each other. You play as the **Game Master (GM)** — inject instructions into discussions, cast votes, or force-eliminate agents.
 
-A browser-based simulator where 5 AI agents (powered by Gemini) debate, betray, and vote to eliminate each other in a death game. You play as the Game Master (GM) - intervene in discussions, cast votes, or force-eliminate agents.
+**No server required.** Your Gemini API key stays in your browser and is sent directly to Google's API.
 
-**No server required.** Your Gemini API key stays in your browser (sessionStorage) and is sent directly to Google's API.
+Gemini搭載のブラウザ完結型デスゲームシミュレーター。個性豊かな5体のAIエージェントが議論し、投票で互いを追放する。あなたは**GM（ゲームマスター）**として介入できる。
 
-### Quick Start
+<p align="center">
+  <img src="public/images/readme/b-howto.jpg" alt="How to Play" width="640" />
+</p>
+
+### GM Intervention / GM介入
+
+議論中にAIへ自由にテキスト指示を出せる。AIたちはその無茶振りに従いながら、命懸けの議論を続ける。
+
+<p align="center">
+  <img src="public/images/readme/01-intervene.jpg" alt="GM Intervention" width="300" />
+  <img src="public/images/readme/02-moderator.jpg" alt="Moderator announces" width="300" />
+  <img src="public/images/readme/03-participant-taking-on-challenging-demands.jpg" alt="Participant responds" width="300" />
+</p>
+
+### Characters / 登場人物
+
+14人+司会者のプールからランダムに5人が選出。トロフィー獲得で隠しキャラが解放される。
+
+<p align="center">
+  <img src="public/images/readme/c-characters.jpg" alt="Characters" width="640" />
+</p>
+
+### Trophies / トロフィー
+
+プレイ結果に応じて実績を獲得。レアトロフィーを集めて隠しキャラを解放しよう。
+
+<p align="center">
+  <img src="public/images/readme/d-trophies.jpg" alt="Trophies" width="640" />
+</p>
+
+---
+
+## Quick Start / セットアップ
 
 ```bash
 git clone https://github.com/yami-inc/ai-death-game.git
@@ -29,96 +66,63 @@ npm run dev
 
 Open http://localhost:3000, enter your [Gemini API key](https://aistudio.google.com/apikey) (free), and start the game.
 
-### Game Rules
-
-- 5 participants selected randomly from a pool of up to 14 characters (hidden characters unlock via trophies)
-- 2 rounds of discussion → vote → elimination. Repeat until 1 survivor
-- GM powers: inject text instructions, force-eliminate, add extra votes
-
-### Tech Stack
-
-Next.js 14 / React 18 / Zustand / Tailwind CSS / @google/genai SDK
-
-### License
-
-[MIT License](LICENSE) - Code is free to use, modify, and distribute.
-
-Character images in `public/agents/` are licensed under [CC BY 4.0](public/agents/LICENSE).
+ブラウザで http://localhost:3000 を開き、[Gemini APIキー](https://aistudio.google.com/apikey)（無料取得可）を入力してゲーム開始。
 
 ---
 
-## 日本語
+## Game Rules / ゲームルール
 
-### 概要
+| | |
+|---|---|
+| **Participants** | 5 agents (from a pool of 14 + hidden characters) |
+| **Flow** | Discussion (2 rounds) → Vote → Elimination → Repeat |
+| **Elimination** | Most votes = eliminated. Ties = all tied agents eliminated |
+| **End** | Last 1 survivor (or 0 = annihilation end) |
+| **GM Powers** | Inject text, force-eliminate, add extra votes |
 
-- AIたちが命をかけて議論するデスゲーム
-- あなたはGM（ゲームマスター）として介入・投票できる
-- ブラウザのみで動作、サーバー不要
-- Gemini APIキー（無料取得可）が必要
+---
 
-### 必要なもの
+## API Key / APIキーについて
 
-- Node.js 18以上
-- Gemini APIキー（[Google AI Studio](https://aistudio.google.com/apikey) で無料取得）
+- Your key is sent **directly from the browser** to Google's Gemini API
+- **No server** stores or proxies your key
+- Stored in `sessionStorage` — cleared when you close the tab
+- Gemini's free tier is sufficient for playing
 
-### セットアップ
+### Models / 使用モデル
 
-```bash
-git clone https://github.com/yami-inc/ai-death-game.git
-cd ai-death-game
-npm install
-npm run dev
-```
+| Usage | Model |
+|-------|-------|
+| Discussion | `gemini-3-flash-preview` |
+| Voting & Reactions | `gemini-2.5-flash` |
 
-ブラウザで http://localhost:3000 を開き、APIキーを入力してゲーム開始。
+If a model is deprecated, update the constants at the top of `lib/byokClient.ts`.
 
-### ゲームルール
+---
 
-- 参加者5名（最大14人プールからランダム選出。トロフィー獲得で段階的に隠しキャラ解放）
-- 議論2周 → 投票 → 退場。最後の1人まで
-- GM介入：テキスト指示挿入、投票フェーズでの強制退場/1票追加
-
-### APIキーについて
-
-- ブラウザから直接GoogleのGemini APIに送信
-- サーバーには一切送信されない（サーバーが存在しない）
-- sessionStorageに一時保存、タブを閉じると消去
-- 無料枠で十分プレイ可能
-
-### 使用モデル
-
-- `gemini-3-flash-preview`（議論）
-- `gemini-2.5-flash`（投票・リアクション）
-
-#### モデルが廃止された場合
-
-Geminiモデルが廃止・名称変更された場合は、`lib/byokClient.ts` の先頭付近にあるモデル定数を新しいモデル名に書き換えてください。
-
-```typescript
-// lib/byokClient.ts
-const BYOK_PRIMARY_MODEL = 'gemini-3-flash-preview';  // ← ここを変更
-const BYOK_FALLBACK_MODEL = 'gemini-2.5-flash';       // ← ここを変更
-```
-
-### 技術スタック
+## Tech Stack
 
 Next.js 14 / React 18 / Zustand / Tailwind CSS / @google/genai SDK
 
-### 参考: クラウドへのデプロイ
+---
 
-#### Vercel（推奨）
+## Deploy / デプロイ
 
-Vercelにインポートするだけで動作します。サーバーサイドの処理はないため、静的サイトと同等のコストで運用可能です。
+### Vercel (recommended)
 
-#### Cloud Run
+Import to Vercel and it just works. No server-side processing — runs at static-site cost.
 
-Next.js のスタンドアロンビルドを Docker コンテナとして Cloud Run にデプロイ可能です。Dockerfile の作成が必要になります。
+### Cloud Run
 
-## ライセンス
+Build as a standalone Next.js Docker container. Dockerfile creation required.
 
-- コード: [MIT License](LICENSE)
-- キャラクター画像 (`public/agents/`): [CC BY 4.0](public/agents/LICENSE)
+---
 
-## コントリビューション
+## License / ライセンス
 
-[CONTRIBUTING.md](CONTRIBUTING.md) を参照してください。
+- Code: [MIT License](LICENSE)
+- Character images (`public/agents/`): [CC BY 4.0](public/agents/LICENSE)
+
+## Contributing
+
+See [CONTRIBUTING.md](CONTRIBUTING.md).

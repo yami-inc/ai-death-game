@@ -1,23 +1,27 @@
-# コントリビューションガイド
+# Contributing
 
-## Issue
+This project is open-sourced for transparency and learning. We may not be able to actively review all PRs — **forking is encouraged** if you want to take it in your own direction. Bug reports via Issues are welcome; we'll do our best to address critical ones.
 
-- バグ報告・機能提案はGitHub Issuesからお願いします
-- **IssueにAPIキーを絶対に含めないでください**
+このプロジェクトは公開・学習目的でOSS化しています。すべてのPRに対応することは難しいため、独自の方向性で発展させたい場合は**フォークを推奨**します。バグ報告のIssueは歓迎します。重大なものは可能な限り対応します。
 
-## プルリクエスト
+## Issues
 
-1. リポジトリをフォーク
-2. feature branch を作成（`git checkout -b feature/my-feature`）
-3. 変更をコミット
-4. プルリクエストを作成
+- Bug reports and feature suggestions via [GitHub Issues](https://github.com/yami-inc/ai-death-game/issues)
+- **Never include your API key in issues**
 
-### 注意事項
+## Pull Requests
 
-- 本プロジェクトはGemini API専用です。他LLMプロバイダー対応はスコープ外です
-- 大きな変更は事前にIssueで議論してください
+1. Fork the repository
+2. Create a feature branch (`git checkout -b feature/my-feature`)
+3. Commit your changes
+4. Open a pull request
 
-## 開発環境
+### Notes
+
+- This project targets Gemini API only. Other LLM providers are out of scope
+- Discuss large changes in an Issue before submitting a PR
+
+## Development
 
 ```bash
 git clone https://github.com/yami-inc/ai-death-game.git
@@ -26,9 +30,9 @@ npm install
 npm run dev
 ```
 
-## コーディング規約
+## Coding Conventions
 
 - TypeScript
-- コメントは日本語
-- スタイリングは Tailwind CSS
-- コンポーネントは `components/` 配下に配置
+- Comments in Japanese
+- Styling with Tailwind CSS
+- Components in `components/`
