@@ -7,6 +7,9 @@
     "type": "git",
     "url": "https://github.com/yami-inc/ai-death-game.git"
   },
+  "engines": {
+    "node": "^20.19.0 || ^22.13.0 || >=24"
+  },
   "scripts": {
     "dev": "next dev",
     "build": "next build",
@@ -32,7 +35,7 @@
     "typescript": "^5.4.0"
   },
   "overrides": {
-    "@types/react": "19.3.0",
-    "@types/react-dom": "19.3.0"
+    "@types/react": "$@types/react",
+    "@types/react-dom": "$@types/react-dom"
   }
 }
