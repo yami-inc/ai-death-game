@@ -13,6 +13,11 @@
   <img src="public/images/readme/a-main.jpg" alt="AI Death Game" width="100%" />
 </p>
 
+> [!IMPORTANT]
+> **2026-10-23: Next.js 16 / React 19 へ移行しました。** Next.js 14 系には修正版が提供されないセキュリティ脆弱性があるため、フォークして運用している方は最新版の取り込みをおすすめします。Node.js 20.19 以上（22 系は 22.13 以上）が必要です。
+>
+> **2026-10-23: Upgraded to Next.js 16 / React 19.** Next.js 14 has security vulnerabilities that will not be patched, so if you run a fork, please pull the latest version. Node.js 20.19+ (or 22.13+ / 24+) is now required.
+
 ---
 
 ## What is this? / 概要
@@ -78,6 +83,8 @@ Earn achievements based on game outcomes. Collect rare trophies to unlock hidden
 
 ## Quick Start / セットアップ
 
+Requires Node.js 20.19+, 22.13+, or 24+ (latest 24.x recommended; see `.nvmrc`) / Node.js 20.19 以上・22.13 以上・24 以上のいずれかが必要です（24 系の最新版を推奨、`.nvmrc` 参照）
+
 ```bash
 git clone https://github.com/yami-inc/ai-death-game.git
 cd ai-death-game
@@ -134,7 +141,7 @@ If a model is deprecated, update the constants at the top of `lib/byokClient.ts`
 
 ## Tech Stack / 技術スタック
 
-Next.js 14 / React 18 / Zustand / Tailwind CSS / @google/genai SDK
+Next.js 16 / React 19 / Zustand / Tailwind CSS / @google/genai SDK
 
 ---
 
@@ -142,15 +149,20 @@ Next.js 14 / React 18 / Zustand / Tailwind CSS / @google/genai SDK
 
 ### Vercel（推奨 / recommended）
 
-Vercelにインポートするだけで動作します。サーバー処理なし — 静的サイト相当のコストで運用可能。
+Vercelにインポートするだけで動作します。Gemini APIの呼び出しはすべてブラウザで行うため、サーバー処理はページ配信・画像最適化・シェアページのメタデータ生成のみで、低コストで運用できます。
 
-Import to Vercel and it just works. No server-side processing — runs at static-site cost.
+Import to Vercel and it just works. All Gemini API calls run in the browser, so the server only handles page delivery, image optimization, and share-page metadata — cheap to run.
 
 ### Cloud Run
 
-スタンドアロンのNext.js Dockerコンテナとしてビルド。Dockerfileの作成が必要です。
+スタンドアロンのNext.js Dockerコンテナとしてビルド。Dockerfileの作成と、`next.config.js` への `output: 'standalone'` の追加が必要です。
 
-Build as a standalone Next.js Docker container. Dockerfile creation required.
+Build as a standalone Next.js Docker container. Requires a Dockerfile and adding `output: 'standalone'` to `next.config.js`.
+
+> [!WARNING]
+> 自前でホストする場合、Next.js のサーバー（画像最適化 API を含む）を自分で運用することになります。Next.js と Node.js は常に最新のパッチ版に保ってください。
+>
+> When self-hosting, you run the Next.js server (including the image optimization API) yourself. Keep Next.js and Node.js on the latest patch versions.
 
 ---
 
