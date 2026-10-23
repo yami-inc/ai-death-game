@@ -134,7 +134,7 @@ If a model is deprecated, update the constants at the top of `lib/byokClient.ts`
 
 ## Tech Stack / 技術スタック
 
-Next.js 14 / React 18 / Zustand / Tailwind CSS / @google/genai SDK
+Next.js 16 / React 19 / Zustand / Tailwind CSS / @google/genai SDK
 
 ---
 
